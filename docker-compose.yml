@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  worker-supervisor:
+    build: .                # <— constrói a imagem com o Dockerfile acima
+    container_name: worker-supervisor
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: "postgres://postgres:Alice*321@postgres:5432/postgres"
+      WORKER_POLL_MS: "10000"
+    networks:
+      - nginx-proxy-manager_default
+      - public_network
+    restart: unless-stopped
+
+networks:
+  nginx-proxy-manager_default:
+    external: true
+    name: nginx-proxy-manager_default
+  public_network:
+    external: true
+    name: public_network
