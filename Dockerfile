@@ -15,4 +15,4 @@ RUN npm ci --omit=dev --no-audit --no-fund || \
 COPY . .
 
 # Executa direto o supervisor
-CMD ["node", "supervisor.mjs"]
+CMD ["node", "master-workers.js"]
