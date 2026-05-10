@@ -82,3 +82,8 @@ export async function startOutgoingWorker() {
     try { await conn?.close(); } catch {}
   };
 }
+
+startOutgoingWorker().catch((e) => {
+  console.error('[workerOut] erro fatal:', e?.message || e);
+  process.exit(1);
+});
