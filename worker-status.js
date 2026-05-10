@@ -254,3 +254,8 @@ export async function startStatusWorker() {
     try { await conn.close(); } catch {}
   };
 }
+
+startStatusWorker().catch((e) => {
+  console.error('[status-worker] erro fatal:', e?.message || e);
+  process.exit(1);
+});
