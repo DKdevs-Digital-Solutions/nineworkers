@@ -3,7 +3,7 @@ import 'dotenv/config'; // se quiser, mas db.js já faz dotenv.config()
 import { initDB } from './engine/services/db.js';
 
 import { startCampaignScheduler } from './worker-campaign-scheduler.js';
-import { startIncomingWorker }   from './worker.js';
+import { startIncomingWorker }   from './worker-incoming.js';
 import { startOutgoingWorker }   from './worker-outgoing.js';
 import { startStatusWorker }     from './worker-status.js';
 
